@@ -4,7 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { ChevronLeft, ChevronRight, Cat } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Cat, Facebook, Twitter, Instagram, Share2, LogIn } from 'lucide-react';
+import { Cloudinary } from '@cloudinary/url-gen';
+import { auto } from '@cloudinary/url-gen/actions/resize';
+import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
+import { AdvancedImage } from '@cloudinary/react';
+
+
 
 interface Question {
   id: number;
@@ -223,6 +229,15 @@ export function Quiz() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [isQuizComplete, setIsQuizComplete] = useState(false);
 
+  // Initialize Cloudinary instance
+  const cld = new Cloudinary({ cloud: { cloudName: "dj5ik5lwp" } });
+  const img = cld
+    .image("cld-sample-5")
+    .format("auto")
+    .quality("auto")
+    .resize(auto().gravity(autoGravity()).width(500).height(500));
+
+
   const questionsPerPage = 2;       // Change here to adjust questions per page
   const totalPages = Math.ceil(questions.length / questionsPerPage);
   const currentQuestions = questions.slice(
@@ -267,14 +282,72 @@ export function Quiz() {
     const dominantPersonality = Object.entries(scores).find(([_, score]) => score === maxScore)?.[0];
     
     const personalityTypes = {
-      A: "Thoughtful Introvert Cat 🐱",
-      B: "Curious Observer Cat 🤔",
-      C: "Adventurous Go-Getter Cat 🚀",
-      D: "Social Butterfly Cat 🦋"
+      A: {
+        name: "Spring Onion",
+        subtitle: "Diplomats",
+        description: "The Spring Onion Tofucat is the idealist and dreamer of the Tofucat group. It has a deep sense of empathy with a strong desire to make the world all the more meaningful.",
+        strengths: [
+          "Emotionally intelligent, value harmony and authenticity",
+          "Skilled in communication, counseling, and inspiring others", 
+          "Driven by values and purpose"
+        ],
+        challenges: [
+          "May avoid conflict or difficult realities",
+          "Can become overwhelmed by emotional intensity or idealism"
+        ],
+        aoi: "Rather than lessening itself, the Spring Onion Tofucat can learn to add a little kick with some decisiveness and pepper, keeping itself honest and firm!"
+      },
+      B: {
+        name: "Soy Sauce",
+        subtitle: "Sentinels", 
+        description: "The Soy Sauce TofuCat is reliable and always has everything under control. Its aged nature makes it the wise guardian of the group, always making sure the Tofucat group is a safe bunch of flavours.",
+        strengths: [
+          "Excellent at organizing systems and following procedures",
+          "Loyal, responsible, and duty-focused",
+          "Thrive in structured environments and uphold traditions"
+        ],
+        challenges: [
+          "May resist change or innovation",
+          "Can be overly focused on rules or perfection"
+        ],
+        aoi: "To not only blend in and shine with its special flavour, the Soy Sauce Tofucat can try to step out more into the spotlight when interacting with other Tofucats!"
+      },
+      C: {
+        name: "Spicy Musubi",
+        subtitle: "Analysts",
+        description: "The Spicy Musubi Tofucat is the strategist and brainiac of the Tofucat group. It knows what needs to be done and gets it done! It is always ready to lead the other Tofucats to glory and loves a good challenge!",
+        strengths: [
+          "Great at problem-solving and analyzing complex systems",
+          "Think critically and value logic over emotions", 
+          "Visionaries and planners, enjoying long-term strategizing"
+        ],
+        challenges: [
+          "Can be seen as overly critical or emotionally distant",
+          "Might undervalue emotional and social considerations"
+        ],
+        aoi: "Instead of dimming the Spicy Musubi Tofucat's light, it can share its talents and passion with the rest of the Tofucat group, ensuring everyone is on fire!"
+      },
+      D: {
+        name: "Scrambled Egg", 
+        subtitle: "Explorers",
+        description: "The Scrambled Egg Tofucat is the party animal of the Tofucat group! It loves to have fun adventures full of thrill and cheer. Always on the lookout for a friend in need, Scrambled Egg makes them a friend indeed!",
+        strengths: [
+          "Live in the moment, excellent at improvisation",
+          "Adaptable, resourceful, and action-oriented",
+          "Thrive in dynamic and fast-paced environments"
+        ],
+        challenges: [
+          "May struggle with long-term planning or routine", 
+          "Can become easily bored or distracted"
+        ],
+        aoi: "Besides constantly worrying about others, the Scrambled Egg TofuCat can learn to consider itself by putting itself before others, making sure it doesn't overcook!"
+      }
     };
     
+    const personality = personalityTypes[dominantPersonality as keyof typeof personalityTypes] || personalityTypes.A;
+    
     return {
-      type: personalityTypes[dominantPersonality as keyof typeof personalityTypes] || "Unique Cat 🌟",
+      personality,
       scores
     };
   };
@@ -282,35 +355,111 @@ export function Quiz() {
   if (isQuizComplete) {
     const results = calculateResults();
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl shadow-2xl">
-          <CardHeader className="text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-t-lg">
-            <div className="flex items-center justify-center mb-4">
-              <Cat className="w-12 h-12 mr-3" />
-              <CardTitle className="text-3xl font-bold">Quiz Complete!</CardTitle>
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex flex-col">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
+          <div className="max-w-6xl mx-auto flex items-center justify-center">
+            <div className="flex items-center">
+              <Cat className="w-8 h-8 mr-3" />
+              <h1 className="text-2xl md:text-3xl font-bold">Hope-Fu Quiz</h1>
             </div>
-          </CardHeader>
-          <CardContent className="p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">Your Cat Personality:</h2>
-            <p className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-6">
-              {results.type}
-            </p>
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              {Object.entries(results.scores).map(([letter, score]) => (
-                <div key={letter} className="bg-green-50 border border-green-200 p-3 rounded-lg">
-                  <div className="font-semibold">{letter} Answers</div>
-                  <div className="text-2xl font-bold text-green-600">{score}</div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 flex items-center justify-center p-4">
+          <Card className="w-full max-w-6xl shadow-2xl overflow-hidden pt-0">
+            <CardHeader className="pt-3 text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+              <div className="flex items-center justify-center ">
+                <Cat className="w-12 h-12 mr-3" />
+                <CardTitle className="text-3xl font-bold">Quiz Complete!</CardTitle>
+              </div>
+            </CardHeader>
+
+            <CardContent className="p-8">
+              <div className="grid lg:grid-cols-2 gap-8 items-start">
+                {/* Left side - Image and CTAs */}
+                <div className="space-y-6">
+                  <div className="flex justify-center">
+                    <div className="w-80 h-80 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl shadow-lg flex items-center justify-center">
+                      <div className="text-center">
+                        <Cat className="w-32 h-32 mx-auto mb-4 text-green-600" />
+                        <p className="text-green-700 font-medium">Your Tofucat Avatar</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Social sharing */}
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Share Your Results!</h2>
+                    <div className="flex justify-center space-x-6">
+                      <Facebook className="w-8 h-8 text-blue-600 cursor-pointer hover:scale-110 transition-transform" />
+                      <Twitter className="w-8 h-8 text-black cursor-pointer hover:scale-110 transition-transform" />
+                      <Instagram className="w-8 h-8 text-pink-600 cursor-pointer hover:scale-110 transition-transform" />
+                      <Share2 className="w-8 h-8 text-gray-600 cursor-pointer hover:scale-110 transition-transform" />
+                    </div>
+                  </div>
+
+                  {/* Sign in CTA */}
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-6 text-center">
+                    <LogIn className="w-8 h-8 mx-auto mb-3 text-green-600" />
+                    <h4 className="text-lg font-bold text-green-800 mb-2">Get the Full Hope-Fu Experience!</h4>
+                    <p className="text-green-700 mb-4">Sign in to save your results, discover more personality insights, and connect with your Tofucat community!</p>
+                    <Button size="lg" className="px-8 py-6 text-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white">
+                      Sign In Now
+                    </Button>
+                  </div>
                 </div>
-              ))}
-            </div>
-            <Button 
-              onClick={() => window.location.reload()} 
-              className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
-            >
-              Take Quiz Again
-            </Button>
-          </CardContent>
-        </Card>
+
+                {/* Right side - Results */}
+                <div className="space-y-6">
+                  <div className="text-center lg:text-left">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-2">You are a...</h2>
+                    <h3 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
+                      {results.personality.name} <span className=" text-green-600 font-semibold">[{results.personality.subtitle}]</span>
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed mb-6">{results.personality.description}</p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-lg font-bold text-green-700 mb-2">Strengths:</h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-700">
+                        {results.personality.strengths.map((strength, index) => (
+                          <li key={index} className="leading-relaxed">{strength}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-orange-600 mb-2">Challenges:</h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-700">
+                        {results.personality.challenges.map((challenge, index) => (
+                          <li key={index} className="leading-relaxed">{challenge}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-blue-600 mb-2">Area of Improvement:</h4>
+                      <p className="text-gray-700 leading-relaxed">{results.personality.aoi}</p>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <Button
+                      onClick={() => window.location.reload()}
+                      variant="outline"
+                      className="px-7 py-7 text-xl border-green-600 text-green-600 hover:bg-green-500 hover:text-white"
+                    >
+                      Take Quiz Again
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     );
   }
