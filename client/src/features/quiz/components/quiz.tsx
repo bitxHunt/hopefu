@@ -361,9 +361,9 @@ export function Quiz() {
           <div className="max-w-6xl mx-auto flex items-center justify-center">
             <div className="flex items-center">
               <img
-                src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174398/jar_rxqpcg.png"
+                src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174998/name_q0ispl.png"
                 alt="Jar"
-                className="w-64 h-80 object-cover"
+                className="w-40 h-15 object-cover"
               />
               <h1 className="text-2xl md:text-3xl font-bold">Quiz</h1>
             </div>
