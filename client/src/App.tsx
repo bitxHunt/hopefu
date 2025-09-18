@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Features Routes
 import { Quiz } from "./features/quiz/components/quiz";
 import { Inventory } from "./features/inventory/components/inventory";
-import { Journaling } from "./features/journaling/components/Journaling";
+import { Journaling } from "./features/journaling/components/journaling";
 
 export function App() {
   return (
