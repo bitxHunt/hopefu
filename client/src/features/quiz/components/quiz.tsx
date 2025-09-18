@@ -238,7 +238,7 @@ export function Quiz() {
     .resize(auto().gravity(autoGravity()).width(500).height(500));
 
 
-  const questionsPerPage = 2;       // Change here to adjust questions per page
+  const questionsPerPage = 3;       // Change here to adjust questions per page
   const totalPages = Math.ceil(questions.length / questionsPerPage);
   const currentQuestions = questions.slice(
     currentPage * questionsPerPage,
@@ -360,8 +360,12 @@ export function Quiz() {
         <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
           <div className="max-w-6xl mx-auto flex items-center justify-center">
             <div className="flex items-center">
-              <Cat className="w-8 h-8 mr-3" />
-              <h1 className="text-2xl md:text-3xl font-bold">Hope-Fu Quiz</h1>
+              <img
+                src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174398/jar_rxqpcg.png"
+                alt="Jar"
+                className="w-64 h-80 object-cover"
+              />
+              <h1 className="text-2xl md:text-3xl font-bold">Quiz</h1>
             </div>
           </div>
         </div>
@@ -485,8 +489,14 @@ export function Quiz() {
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
-            <Cat className="w-8 h-8 mr-3" />
-            <h1 className="text-2xl md:text-3xl font-bold">Hope-Fu Quiz</h1>
+            <img
+              src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174998/name_q0ispl.png"
+              alt="Jar"
+              className="w-40 h-15 object-cover"
+            />
+          </div>
+          <div className="flex items-center space-x-4">
+            {/* <h1 className="text-2xl md:text-3xl font-bold">Quiz</h1> */}
           </div>
           <div className="text-right">
             <div className="text-sm opacity-90">Page {currentPage + 1} of {totalPages}</div>
@@ -525,7 +535,7 @@ export function Quiz() {
                   className="space-y-3"
                 >
                   {question.options.map((option) => (
-                    <div key={option.value} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div key={option.value} className="flex items-start space-x-3 px-3 rounded-lg hover:bg-gray-50 transition-colors">
                       <RadioGroupItem 
                         value={option.value} 
                         id={`${question.id}-${option.value}`}
