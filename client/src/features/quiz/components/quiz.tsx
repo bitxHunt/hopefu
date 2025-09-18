@@ -384,14 +384,19 @@ export function Quiz() {
                     <div className="w-80 h-80 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl shadow-lg flex items-center justify-center">
                       <img 
                         src={(() => {
-                          const dominantPersonality = Object.entries(results.scores).reduce((a, b) => results.scores[a[0]] > results.scores[b[0]] ? a : b)[0];
+                          const dominantPersonality = Object.entries(results.scores).reduce(
+                            (a, b) =>
+                              results.scores[a[0] as keyof typeof results.scores] > results.scores[b[0] as keyof typeof results.scores]
+                                ? a
+                                : b
+                          )[0];
                           const imageMap = {
                             A: "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135628/11_jdqruu.png",
                             B: "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135744/22_y40a2s.png", 
                             C: "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135741/33_zsxbti.png",
                             D: "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135740/44_id7fxc.png"
                           };
-                          return imageMap[dominantPersonality] || imageMap.A;
+                          return imageMap[dominantPersonality as keyof typeof imageMap] || imageMap.A;
                         })()} 
                         alt={`${results.personality.name} Tofucat`}
                         className="w-full h-full object-cover"
