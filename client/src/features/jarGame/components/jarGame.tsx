@@ -68,12 +68,12 @@ export function JarGame() {
 
   if (gameComplete) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-200 via-green-300 to-emerald-200 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center p-4">
         <Card className="max-w-md shadow-2xl">
-          <CardContent className="p-8 text-center">
-            <Star className="w-16 h-16 mx-auto mb-4 text-yellow-500" />
+          <CardContent className="px-15 py-4 text-center">
+            <Star className="w-16 h-16 mx-auto mb-4 text-yellow-300 fill-current" />
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Game Complete!</h2>
-            <p className="text-xl text-gray-600 mb-6">Your Total Score:</p>
+            <p className="text-xl text-gray-600 mb-4">You Have Earned:</p>
             <p className="text-4xl font-bold text-green-600 mb-6">{totalPoints} Points</p>
             <Button 
               onClick={() => window.location.reload()}
@@ -88,7 +88,7 @@ export function JarGame() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-200 via-green-300 to-emerald-200">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
