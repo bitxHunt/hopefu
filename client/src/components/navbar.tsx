@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 
 import { AlignJustify } from "lucide-react";
 
-export function Navbar (){
+export function Navbar() {
   return (
     <header className="sticky top-0 left-0 right-0 z-50 bg-black">
       <div className="flex h-16 sm:h-20 w-full items-center px-4 md:px-6 max-w-9xl mx-auto">
@@ -98,50 +98,42 @@ export function Navbar (){
         <NavigationMenu className="ml-auto hidden lg:flex">
           <NavigationMenuList className="space-x-1">
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <a
                 href="/"
                 className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Quiz
-              </NavigationMenuLink>
+              </a>
             </NavigationMenuItem>
-            {/* <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/inventory"
-                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
-              >
-                Inventory
-              </NavigationMenuLink>
-            </NavigationMenuItem> */}
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <a
                 href="/gatcha"
                 className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Gatcha
-              </NavigationMenuLink>
+              </a>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <a
                 href="/database"
                 className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Database
-              </NavigationMenuLink>
+              </a>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <a
                 href="/journaling"
                 className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Journaling
-              </NavigationMenuLink>
+              </a>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
     </header>
   );
-};
+}
 
 export default Navbar;
