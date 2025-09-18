@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import Navbar from '@/components/navbar'
 import { 
   Cat, 
   Save, 
@@ -15,7 +16,8 @@ import {
   Meh,
   Star,
   Trash2,
-  Edit3
+  Edit3,
+  Notebook
 } from 'lucide-react';
 
 interface JournalEntry {
@@ -95,12 +97,13 @@ export function Journaling() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+      <Navbar />
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
+      <div className="text-green-600 px-6 pt-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center">
-            <Cat className="w-8 h-8 mr-3" />
-            <h1 className="text-2xl md:text-3xl font-bold">Journaling</h1>
+            <h1 className="text-2xl md:text-4xl font-bold ms-7">Journaling</h1>
+            <Notebook className="w-10 h-10 mr-3 ms-3" />
           </div>
         </div>
       </div>
@@ -158,14 +161,11 @@ export function Journaling() {
               // const MoodIcon = moodIcons[entry.mood].icon;
               return (
                 <Card key={entry.id} className="shadow-md hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
+                  <CardContent className="px-6 py-2">
                     <div className="flex justify-between items-start mb-3">
                       <div className="flex-1">
                         <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="text-xl font-semibold text-gray-800">{entry.title}</h3>
-                          {/* <div className={`p-1 rounded-full ${moodIcons[entry.mood].bg}`}>
-                            <MoodIcon className={`w-4 h-4 ${moodIcons[entry.mood].color}`} />
-                          </div> */}
+                          <h3 className="text-xl font-semibold text-gray-800 ">{entry.title}</h3>
                         </div>
                         <div className="flex items-center space-x-4 text-sm text-gray-500">
                           <span className="flex items-center space-x-1">
@@ -194,15 +194,6 @@ export function Journaling() {
                       {entry.content.length > 200 ? `${entry.content.slice(0, 200)}...` : entry.content}
                     </p>
                     
-                    {/* {entry.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {entry.tags.map(tag => (
-                          <Badge key={tag} variant="outline" className="text-green-600 border-green-200">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    )} */}
                   </CardContent>
                 </Card>
               );

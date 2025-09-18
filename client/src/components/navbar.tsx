@@ -20,7 +20,7 @@ import { AlignJustify } from "lucide-react";
 
 export function Navbar (){
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-black">
       <div className="flex h-16 sm:h-20 w-full items-center px-4 md:px-6 max-w-9xl mx-auto">
         <div className="sm:mx-6">
           <a href="/" className="flex items-center space-x-2">
@@ -67,12 +67,12 @@ export function Navbar (){
               >
                 Quiz
               </a>
-              <a
+              {/* <a
                 href="/inventory"
                 className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
               >
                 Inventory
-              </a>
+              </a> */}
               <a
                 href="/gatcha"
                 className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
@@ -105,14 +105,14 @@ export function Navbar (){
                 Quiz
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuLink
                 href="/inventory"
                 className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Inventory
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/gatcha"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft, Star } from 'lucide-react';
+import Navbar from '@/components/navbar'
 
 interface Choice {
   id: number;
@@ -69,6 +70,7 @@ export function JarGame() {
   if (gameComplete) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center p-4">
+        <Navbar />
         <Card className="max-w-md shadow-2xl">
           <CardContent className="px-15 py-4 text-center">
             <Star className="w-16 h-16 mx-auto mb-4 text-yellow-300 fill-current" />
