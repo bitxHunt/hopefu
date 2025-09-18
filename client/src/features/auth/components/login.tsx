@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -29,6 +31,7 @@ type FormData = z.infer<typeof formSchema>;
 
 export function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -41,7 +44,7 @@ export function Login() {
   const onSubmit = async (data: FormData) => {
     console.log("Form submitted:", data);
     // Add your login logic here
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
+    navigate("/quiz");
   };
 
   const handleGoogleLogin = () => {
@@ -184,7 +187,7 @@ export function Login() {
 
             <Button
               type="button"
-              className="w-full"
+              className="w-full bg-gradient-to-r from-green-600 to-emerald-600"
               disabled={isSubmitting}
               onClick={handleSubmit(onSubmit)}
             >
@@ -196,7 +199,7 @@ export function Login() {
             <span className="text-muted-foreground">
               Don't have an account?{" "}
             </span>
-            <Button variant="link" className="px-0">
+            <Button variant="link" className="px-0 text-emerald-600">
               Sign up
             </Button>
           </div>
