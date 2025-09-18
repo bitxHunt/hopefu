@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Cat, ArrowLeft } from "lucide-react";
+import { Navbar } from "@/components/navbar";
 
 const catDatabase = {
   A: {
@@ -99,105 +100,87 @@ export function Database() {
 
   if (selectedCat) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
-          <div className="max-w-4xl mx-auto">
-            <Button
-              onClick={() => setSelectedCat(null)}
-              variant="ghost"
-              className="text-white hover:bg-white/20 mb-4"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Database
-            </Button>
-            <div className="flex items-center justify-center">
-              <Cat className="w-8 h-8 mr-3" />
-              <h1 className="text-3xl font-bold">{selectedCat.name}</h1>
-            </div>
-            <p className="text-center text-green-100 text-lg mt-2">
-              {selectedCat.subtitle}
-            </p>
-          </div>
-        </div>
-
-        {/* Cat Details */}
-        <div className="max-w-6xl mx-auto p-6">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Left side - Image */}
-              <div className="flex justify-center items-center">
-                <div className="w-80 h-80 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl shadow-lg flex items-center justify-center">
-                  <img
-                    src={selectedCat.image}
-                    alt={selectedCat.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+      <div>
+        <Navbar />
+        <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center">
+          {/* Cat Details */}
+          <div className="max-w-6xl mx-auto p-6">
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="mb-6">
+                <Button
+                  onClick={() => setSelectedCat(null)}
+                  variant="link"
+                  className="px-7 py-7 text-xl border-green-600 text-green-600 cursor-pointer"
+                >
+                  Back to Database
+                </Button>
               </div>
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Left side - Image */}
 
-              {/* Right side - Details */}
-              <div className="space-y-6">
-                <div className="text-center lg:text-left">
-                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                    You are a...
-                  </h2>
-                  <h3 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
-                    {selectedCat.name}{" "}
-                    <span className="text-green-600 font-semibold">
-                      [{selectedCat.subtitle}]
-                    </span>
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    {selectedCat.description}
-                  </p>
+                <div className="flex justify-center items-center">
+                  <div className="w-80 h-80 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl shadow-lg flex items-center justify-center">
+                    <img
+                      src={selectedCat.image}
+                      alt={selectedCat.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-bold text-green-700 mb-2">
-                      Strengths:
-                    </h4>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      {selectedCat.strengths.map((strength, index) => (
-                        <li key={index} className="leading-relaxed">
-                          {strength}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-bold text-orange-600 mb-2">
-                      Challenges:
-                    </h4>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      {selectedCat.challenges.map((challenge, index) => (
-                        <li key={index} className="leading-relaxed">
-                          {challenge}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-bold text-blue-600 mb-2">
-                      Area of Improvement:
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {selectedCat.improvement}
+                {/* Right side - Details */}
+                <div className="space-y-6">
+                  <div className="text-center lg:text-left">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                      You are a...
+                    </h2>
+                    <h3 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
+                      {selectedCat.name}{" "}
+                      <span className="text-green-600 font-semibold">
+                        [{selectedCat.subtitle}]
+                      </span>
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      {selectedCat.description}
                     </p>
                   </div>
-                </div>
 
-                <div className="text-center">
-                  <Button
-                    onClick={() => setSelectedCat(null)}
-                    variant="outline"
-                    className="px-7 py-7 text-xl border-green-600 text-green-600 hover:bg-green-500 hover:text-white"
-                  >
-                    Back to Database
-                  </Button>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-lg font-bold text-green-700 mb-2">
+                        Strengths:
+                      </h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-700">
+                        {selectedCat.strengths.map((strength, index) => (
+                          <li key={index} className="leading-relaxed">
+                            {strength}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-orange-600 mb-2">
+                        Challenges:
+                      </h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-700">
+                        {selectedCat.challenges.map((challenge, index) => (
+                          <li key={index} className="leading-relaxed">
+                            {challenge}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-blue-600 mb-2">
+                        Area of Improvement:
+                      </h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        {selectedCat.improvement}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,48 +191,38 @@ export function Database() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center mb-4">
-            <Cat className="w-8 h-8 mr-3" />
-            <h1 className="text-3xl font-bold">Cat Database</h1>
+    <div>
+      <Navbar />
+      <div className="mt-17">
+        {/* Cat Grid */}
+        <div className="max-w-4xl mx-auto p-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {Object.values(catDatabase).map((cat) => (
+              <Card
+                key={cat.id}
+                className="cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 aspect-square"
+                onClick={() => setSelectedCat(cat)}
+              >
+                <CardContent className="p-4 h-full flex flex-col">
+                  <div className="flex-1 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex flex-col items-center justify-center">
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                </CardContent>
+                <CardFooter className="flex flex-col justify-center">
+                  <div className="text-center">
+                    <h3 className="font-bold text-sm text-gray-800 mb-1">
+                      {cat.name}
+                    </h3>
+                    <p className="text-xs text-gray-600">{cat.subtitle}</p>
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
-          <p className="text-green-100 text-lg">
-            Discover all the mystical cats in the Hope-Fu universe
-          </p>
-        </div>
-      </div>
-
-      {/* Cat Grid */}
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {Object.values(catDatabase).map((cat) => (
-            <Card
-              key={cat.id}
-              className="cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 aspect-square"
-              onClick={() => setSelectedCat(cat)}
-            >
-              <CardContent className="p-4 h-full flex flex-col">
-                <div className="flex-1 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex flex-col items-center justify-center">
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className="w-full h-full object-contain p-2"
-                  />
-                </div>
-              </CardContent>
-              <CardFooter className="flex flex-col justify-center">
-                <div className="text-center">
-                  <h3 className="font-bold text-sm text-gray-800 mb-1">
-                    {cat.name}
-                  </h3>
-                  <p className="text-xs text-gray-600">{cat.subtitle}</p>
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
         </div>
       </div>
     </div>
