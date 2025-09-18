@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans:wght@400;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -117,4 +118,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+* {
+  font-family: 'Bubblegum Sans', 'Comic Sans MS', cursive !important;
 }
