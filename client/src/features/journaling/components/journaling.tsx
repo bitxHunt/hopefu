@@ -111,10 +111,10 @@ export function Journaling() {
       <div className="max-w-6xl mx-auto p-6">
         {/* Always Show Typing Area */}
         <Card className="mb-6 shadow-lg pt-0">
-          <CardHeader className="bg-gradient-to-r from-green-100 to-emerald-100 p-3">
+          <CardHeader className="bg-[#1c6d22] p-3">
             <CardTitle className="flex items-center space-x-2">
-              <Edit3 className="w-6 h-6 text-green-600" />
-              <span className="text-2xl">Write your Thoughts</span>
+              <Edit3 className="w-6 h-6 text-green-400" />
+              <span className="text-2xl text-white/90">Write your Thoughts</span>
               {/* <h1>Write Your Thoughts</h1> */}
             </CardTitle>
           </CardHeader>
@@ -136,7 +136,7 @@ export function Journaling() {
             <div className="flex justify-end">
               <Button
                 onClick={handleSaveEntry}
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
+                className="bg-[#1c6d22] hover:bg-[#1e7725]"
                 disabled={!currentEntry.title || !currentEntry.content}
               >
                 <Save className="w-4 h-4 mr-2" />

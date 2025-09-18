@@ -7,8 +7,8 @@ import { Navbar } from "@/components/navbar";
 const catDatabase = {
   A: {
     id: "A",
-    name: "Mystic Whiskers",
-    subtitle: "Dreamers",
+    name: "Spring Onion",
+    subtitle: "Diplomats",
     image:
       "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135628/11_jdqruu.png",
     description:
@@ -29,8 +29,8 @@ const catDatabase = {
   },
   B: {
     id: "B",
-    name: "Golden Paws",
-    subtitle: "Fortune Bringers",
+    name: "Soy Sauce",
+    subtitle: "Sentinels",
     image:
       "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135744/22_y40a2s.png",
     description:
@@ -51,8 +51,8 @@ const catDatabase = {
   },
   C: {
     id: "C",
-    name: "Shadow Mittens",
-    subtitle: "Guardians",
+    name: "Spicy Musubi",
+    subtitle: "Analysts",
     image:
       "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135741/33_zsxbti.png",
     description:
@@ -73,8 +73,8 @@ const catDatabase = {
   },
   D: {
     id: "D",
-    name: "Lucky Spirit",
-    subtitle: "Harmony Keepers",
+    name: "Scrambled Egg",
+    subtitle: "Explorer",
     image:
       "https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758135740/44_id7fxc.png",
     description:
@@ -135,10 +135,7 @@ export function Database() {
                       You are a...
                     </h2>
                     <h3 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
-                      {selectedCat.name}{" "}
-                      <span className="text-green-600 font-semibold">
-                        [{selectedCat.subtitle}]
-                      </span>
+                      {selectedCat.name} Tofu Cat
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-6">
                       {selectedCat.description}
