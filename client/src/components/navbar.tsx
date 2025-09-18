@@ -18,13 +18,17 @@ import { Button } from "@/components/ui/button";
 
 import { AlignJustify } from "lucide-react";
 
-const Navbar = () => {
+export function Navbar (){
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black">
       <div className="flex h-16 sm:h-20 w-full items-center px-4 md:px-6 max-w-9xl mx-auto">
         <div className="sm:mx-6">
           <a href="/" className="flex items-center space-x-2">
-            <img className="h-8 sm:h-12 w-auto" src="me" alt="Hopefu Logo" />
+            <img
+              className="h-8 sm:h-12 w-auto"
+              src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174998/name_q0ispl.png"
+              alt="Hopefu Logo"
+            />
           </a>
         </div>
 
@@ -47,7 +51,7 @@ const Navbar = () => {
               <SheetTitle>
                 <img
                   className="object-fit h-10 w-20"
-                  src="me"
+                  src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174998/name_q0ispl.png"
                   alt="Hopefu Logo"
                 />
               </SheetTitle>
@@ -96,7 +100,7 @@ const Navbar = () => {
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Quiz
               </NavigationMenuLink>
@@ -104,7 +108,7 @@ const Navbar = () => {
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/inventory"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Inventory
               </NavigationMenuLink>
@@ -112,7 +116,7 @@ const Navbar = () => {
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/gatcha"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Gatcha
               </NavigationMenuLink>
@@ -120,7 +124,7 @@ const Navbar = () => {
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/database"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Database
               </NavigationMenuLink>
@@ -128,7 +132,7 @@ const Navbar = () => {
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/journaling"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
               >
                 Journaling
               </NavigationMenuLink>
