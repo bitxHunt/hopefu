@@ -24,11 +24,7 @@ const Navbar = () => {
       <div className="flex h-16 sm:h-20 w-full items-center px-4 md:px-6 max-w-9xl mx-auto">
         <div className="sm:mx-6">
           <a href="/" className="flex items-center space-x-2">
-            <img
-              className="h-8 sm:h-12 w-auto"
-              src="https://www.tmninternational.com/files/LOGO.png"
-              alt="TMN International Logo"
-            />
+            <img className="h-8 sm:h-12 w-auto" src="me" alt="Hopefu Logo" />
           </a>
         </div>
 
@@ -51,8 +47,8 @@ const Navbar = () => {
               <SheetTitle>
                 <img
                   className="object-fit h-10 w-20"
-                  src="https://www.tmninternational.com/files/LOGO.png"
-                  alt="TMN International Logo"
+                  src="me"
+                  alt="Hopefu Logo"
                 />
               </SheetTitle>
               <SheetDescription className="text-white/70 hidden">
@@ -65,25 +61,31 @@ const Navbar = () => {
                 href="/"
                 className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
               >
-                Home
+                Quiz
               </a>
               <a
-                href="/services"
+                href="/inventory"
                 className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
               >
-                Services
+                Inventory
               </a>
               <a
-                href="/pyi-taw-thar"
+                href="/gatcha"
                 className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
               >
-                Pyi Taw Thar
+                Gatcha
               </a>
               <a
-                href="/contact-us"
+                href="/database"
                 className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
               >
-                Contact Us
+                Database
+              </a>
+              <a
+                href="/journaling"
+                className="text-base sm:text-lg text-white hover:text-blue-400 transition-colors duration-300 py-1"
+              >
+                Journaling
               </a>
             </div>
           </SheetContent>
@@ -96,23 +98,7 @@ const Navbar = () => {
                 href="/"
                 className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
               >
-                Home
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/services"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
-              >
-                Database
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/Gatcha"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
-              >
-                Gatcha
+                Quiz
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -121,6 +107,30 @@ const Navbar = () => {
                 className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
               >
                 Inventory
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                href="/gatcha"
+                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+              >
+                Gatcha
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                href="/database"
+                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+              >
+                Database
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                href="/journaling"
+                className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors duration-300"
+              >
+                Journaling
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
