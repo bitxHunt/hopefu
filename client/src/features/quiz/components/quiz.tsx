@@ -414,7 +414,7 @@ export function Quiz() {
                       <Share2 className="w-8 h-8 text-gray-600 cursor-pointer hover:scale-110 transition-transform" />
                     </div>
                   </div>
-
+                  
                   {/* Sign in CTA */}
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-6 text-center">
                     <LogIn className="w-8 h-8 mx-auto mb-3 text-green-600" />
