@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { ChevronLeft, ChevronRight, Cat, Facebook, Twitter, Instagram, Share2, LogIn } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Cat, Facebook, Twitter, Instagram, Share2, LogIn, Star } from 'lucide-react';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { auto } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
@@ -357,13 +357,13 @@ export function Quiz() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
+        <div className="bg-[#1c6d22] text-white p-6 shadow-lg">
           <div className="max-w-6xl mx-auto flex items-center justify-center">
             <div className="flex items-center">
               <img
                 src="https://res.cloudinary.com/dj5ik5lwp/image/upload/v1758174998/name_q0ispl.png"
                 alt="Jar"
-                className="w-40 h-15 object-cover"x
+                className="w-40 h-15 object-cover"
               />
               <h1 className="text-2xl md:text-3xl font-bold">Quiz</h1>
             </div>
@@ -373,9 +373,9 @@ export function Quiz() {
         {/* Main Content */}
         <div className="flex-1 flex items-center justify-center p-4">
           <Card className="w-full max-w-6xl shadow-2xl overflow-hidden pt-0">
-            <CardHeader className="pt-3 text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white">
-              <div className="flex items-center justify-center ">
-                <Cat className="w-12 h-12 mr-3" />
+            <CardHeader className="pt-3 text-center bg-[#1c6d22] text-white">
+              <div className="flex gap-4 items-center justify-center ">
+                <Star className="w-14 h-14 text-yellow-300 fill-current" />
                 <CardTitle className="text-3xl font-bold">Quiz Complete!</CardTitle>
               </div>
             </CardHeader>
@@ -424,7 +424,7 @@ export function Quiz() {
                     <LogIn className="w-8 h-8 mx-auto mb-3 text-green-600" />
                     <h4 className="text-lg font-bold text-green-800 mb-2">Get the Full Hope-Fu Experience!</h4>
                     <p className="text-green-700 mb-4">Sign in to save your results, discover more personality insights, and connect with your Tofucat community!</p>
-                    <Button size="lg" className="px-8 py-6 text-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white">
+                    <Button size="lg" className="px-8 py-6 text-xl bg-[#1c6d22] hover:bg-[#1c6d32] text-white">
                       Sign In Now
                     </Button>
                   </div>
@@ -435,7 +435,7 @@ export function Quiz() {
                   <div className="text-center lg:text-left">
                     <h2 className="text-3xl font-bold text-gray-800 mb-2">You are a...</h2>
                     <h3 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
-                      {results.personality.name} <span className=" text-green-600 font-semibold">[{results.personality.subtitle}]</span>
+                      {results.personality.name} Tofu Cat
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-6">{results.personality.description}</p>
                   </div>
@@ -469,7 +469,7 @@ export function Quiz() {
                     <Button
                       onClick={() => window.location.reload()}
                       variant="outline"
-                      className="px-7 py-7 text-xl border-green-600 text-green-600 hover:bg-green-500 hover:text-white"
+                      className="px-7 py-7 text-xl border-green-600 text-green-600 hover:bg-[#1c6d22] hover:text-white"
                     >
                       Take Quiz Again
                     </Button>
@@ -486,7 +486,7 @@ export function Quiz() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
+      <div className="bg-[#1c6d22] text-white p-6 shadow-lg">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
             <img
@@ -572,7 +572,7 @@ export function Quiz() {
           <Button
             onClick={handleNext}
             disabled={!canGoNext}
-            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 flex items-center space-x-2"
+            className="bg-[#1c6d22] hover:bg-[#1e7725] flex items-center space-x-2"
           >
             <span>{currentPage === totalPages - 1 ? 'Finish Quiz' : 'Next'}</span>
             <ChevronRight className="w-4 h-4" />

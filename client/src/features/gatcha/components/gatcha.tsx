@@ -12,10 +12,10 @@ const imageMap = {
 };
 
 const catNames = {
-  A: "Mystic Whiskers",
-  B: "Golden Paws",
-  C: "Shadow Mittens",
-  D: "Lucky Spirit",
+  A: "Spring Onion",
+  B: "Soy Sauce",
+  C: "Spicy Musubi",
+  D: "Scrambled Egg",
 };
 
 export function Gatcha() {
@@ -79,7 +79,7 @@ export function Gatcha() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
         <Card className="w-full max-w-2xl shadow-2xl overflow-hidden border-0 bg-white/95 backdrop-blur-sm p-0">
           {/* Header */}
-          <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-8 text-center relative overflow-hidden">
+          <div className="bg-[#1c6d22] text-white p-8 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-2">
@@ -209,7 +209,7 @@ export function Gatcha() {
                 <div className="grid grid-cols-2 gap-12 w-full max-w-md">
                   <Button
                     onClick={drawSingleCat}
-                    className="px-8 py-6 text-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
+                    className="px-8 py-6 text-xl bg-[#1c6d22] hover:bg-[#1e7725] text-white"
                   >
                     Draw 1x Cat
                   </Button>
@@ -232,7 +232,7 @@ export function Gatcha() {
                   <Button
                     onClick={resetDraw}
                     size="lg"
-                    className="px-8 py-6 text-xl bg-gradient-to-r from-green-600 to-emerald-600 text-white"
+                    className="px-8 py-6 text-xl bg-[#1c6d22] hover:bg-[#1e7725] text-white"
                   >
                     <RefreshCw className="w-5 h-5 mr-2" />
                     Reset
