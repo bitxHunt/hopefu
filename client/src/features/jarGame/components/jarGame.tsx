@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import Navbar from '@/components/navbar'
 
 interface Choice {
@@ -55,6 +55,7 @@ export function JarGame() {
 
   const handleOptionSelect = (option: string, points: number) => {
     setTotalPoints(prev => prev + points);
+    console.log(`Selected option: ${option}, earned ${points} points. Total points: ${totalPoints + points}`);
     
     setTimeout(() => {
       if (currentChoice < choices.length - 1) {
