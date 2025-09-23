@@ -5,10 +5,7 @@ import { Progress } from '@/components/ui/progress';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { ChevronLeft, ChevronRight, Cat, Facebook, Twitter, Instagram, Share2, LogIn, Star } from 'lucide-react';
-import { Cloudinary } from '@cloudinary/url-gen';
-import { auto } from '@cloudinary/url-gen/actions/resize';
-import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
-import { AdvancedImage } from '@cloudinary/react';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -228,14 +225,7 @@ export function Quiz() {
   const [currentPage, setCurrentPage] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [isQuizComplete, setIsQuizComplete] = useState(false);
-
-  // Initialize Cloudinary instance
-  const cld = new Cloudinary({ cloud: { cloudName: "dj5ik5lwp" } });
-  const img = cld
-    .image("cld-sample-5")
-    .format("auto")
-    .quality("auto")
-    .resize(auto().gravity(autoGravity()).width(500).height(500));
+  const navigate = useNavigate();
 
 
   const questionsPerPage = 3;       // Change here to adjust questions per page
@@ -352,6 +342,16 @@ export function Quiz() {
     };
   };
 
+  const handleSignIn = () => {
+    try {
+       navigate('/login');
+     } catch (error) {
+       console.error('Navigation error:', error);
+       // Fallback: redirect using window.location
+       window.location.href = '/signin';
+     }
+  }
+
   if (isQuizComplete) {
     const results = calculateResults();
     return (
@@ -424,7 +424,11 @@ export function Quiz() {
                     <LogIn className="w-8 h-8 mx-auto mb-3 text-green-600" />
                     <h4 className="text-lg font-bold text-green-800 mb-2">Get the Full Hope-Fu Experience!</h4>
                     <p className="text-green-700 mb-4">Sign in to save your results, discover more personality insights, and connect with your Tofucat community!</p>
-                    <Button size="lg" className="px-8 py-6 text-xl bg-[#1c6d22] hover:bg-[#1c6d32] text-white">
+                    <Button 
+                      size="lg" 
+                      className="px-8 py-6 text-xl bg-[#1c6d22] hover:bg-[#1c6d32] text-white"
+                      onClick={handleSignIn}
+                      >
                       Sign In Now
                     </Button>
                   </div>

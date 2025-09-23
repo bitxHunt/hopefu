@@ -129,6 +129,14 @@ export function Navbar() {
                 Journaling
               </a>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <a
+                href="/choicesInAJar"
+                className="px-4 items-center justify-center text-white hover:text-emerald-400 hover:bg-black"
+              >
+                JarGame
+              </a>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>

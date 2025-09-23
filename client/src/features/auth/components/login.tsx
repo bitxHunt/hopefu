@@ -44,7 +44,7 @@ export function Login() {
   const onSubmit = async (data: FormData) => {
     console.log("Form submitted:", data);
     // Add your login logic here
-    navigate("/quiz");
+    navigate("/gatcha");
   };
 
   const handleGoogleLogin = () => {
