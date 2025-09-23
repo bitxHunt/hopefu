@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Cat, ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 
 const catDatabase = {
@@ -96,7 +95,7 @@ const catDatabase = {
 };
 
 export function Database() {
-  const [selectedCat, setSelectedCat] = useState(null);
+  const [selectedCat, setSelectedCat] = useState<any>(null);
 
   if (selectedCat) {
     return (
@@ -148,7 +147,7 @@ export function Database() {
                         Strengths:
                       </h4>
                       <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {selectedCat.strengths.map((strength, index) => (
+                        {selectedCat.strengths.map((strength: string, index: number) => (
                           <li key={index} className="leading-relaxed">
                             {strength}
                           </li>
@@ -161,7 +160,7 @@ export function Database() {
                         Challenges:
                       </h4>
                       <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {selectedCat.challenges.map((challenge, index) => (
+                        {selectedCat.challenges.map((challenge: string, index: number) => (
                           <li key={index} className="leading-relaxed">
                             {challenge}
                           </li>
@@ -194,7 +193,7 @@ export function Database() {
         {/* Cat Grid */}
         <div className="max-w-4xl mx-auto p-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {Object.values(catDatabase).map((cat) => (
+            {Object.values(catDatabase).map((cat: any) => (
               <Card
                 key={cat.id}
                 className="cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 aspect-square"

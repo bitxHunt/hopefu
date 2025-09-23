@@ -9,10 +9,6 @@ import {
   Calendar, 
   BookOpen, 
   Heart,
-  Smile,
-  Frown,
-  Meh,
-  Star,
   Trash2,
   Edit3,
   Notebook
@@ -77,7 +73,7 @@ export function Journaling() {
   };
 
   const toggleFavorite = (entryId: string) => {
-    setEntries(prev => prev.map(entry => 
+    setEntries(prev => prev.map((entry: any) => 
       entry.id === entryId ? { ...entry, isFavorite: !entry.isFavorite } : entry
     ));
   };
@@ -148,7 +144,7 @@ export function Journaling() {
               </CardContent>
             </Card>
           ) : (
-            entries.map(entry => {
+            entries.map((entry: any) => {
               // const MoodIcon = moodIcons[entry.mood].icon;
               return (
                 <Card key={entry.id} className="shadow-md hover:shadow-lg transition-shadow">
