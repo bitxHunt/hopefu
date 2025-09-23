@@ -4,8 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import Navbar from '@/components/navbar'
-import { 
-  Cat, 
+import {
   Save, 
   Calendar, 
   BookOpen, 
@@ -58,13 +57,6 @@ export function Journaling() {
     // mood: 'neutral',
     // tags: []
   });
-
-  const moodIcons = {
-    happy: { icon: Smile, color: 'text-green-600', bg: 'bg-green-100' },
-    excited: { icon: Star, color: 'text-yellow-600', bg: 'bg-yellow-100' },
-    neutral: { icon: Meh, color: 'text-gray-600', bg: 'bg-gray-100' },
-    sad: { icon: Frown, color: 'text-blue-600', bg: 'bg-blue-100' }
-  };
 
   const handleSaveEntry = () => {
     if (!currentEntry.title || !currentEntry.content) return;

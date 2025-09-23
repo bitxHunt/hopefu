@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { ChevronLeft, ChevronRight, Cat, Facebook, Twitter, Instagram, Share2, LogIn, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Facebook, Twitter, Instagram, Share2, LogIn, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 
