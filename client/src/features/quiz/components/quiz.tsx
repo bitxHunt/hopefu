@@ -448,7 +448,7 @@ export function Quiz() {
                     <div>
                       <h4 className="text-lg font-bold text-green-700 mb-2">Strengths:</h4>
                       <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {results.personality.strengths.map((strength, index) => (
+                        {results.personality.strengths.map((strength: string, index: number) => (
                           <li key={index} className="leading-relaxed">{strength}</li>
                         ))}
                       </ul>
@@ -457,7 +457,7 @@ export function Quiz() {
                     <div>
                       <h4 className="text-lg font-bold text-orange-600 mb-2">Challenges:</h4>
                       <ul className="list-disc list-inside space-y-1 text-gray-700">
-                        {results.personality.challenges.map((challenge, index) => (
+                        {results.personality.challenges.map((challenge: string, index: number) => (
                           <li key={index} className="leading-relaxed">{challenge}</li>
                         ))}
                       </ul>
@@ -528,7 +528,7 @@ export function Quiz() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-8 p-6">
-            {currentQuestions.map((question, index) => (
+            {currentQuestions.map((question: any, index: number) => (
               <div key={question.id} className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-800 leading-relaxed">
                   {currentPage * questionsPerPage + index + 1}. {question.text}
@@ -538,7 +538,7 @@ export function Quiz() {
                   onValueChange={(value: string) => handleAnswerChange(question.id, value)}
                   className="space-y-3"
                 >
-                  {question.options.map((option) => (
+                  {question.options.map((option: any) => (
                     <div key={option.value} className="flex items-start space-x-3 px-3 rounded-lg hover:bg-gray-50 transition-colors">
                       <RadioGroupItem 
                         value={option.value} 
