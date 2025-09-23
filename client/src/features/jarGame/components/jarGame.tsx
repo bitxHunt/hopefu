@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star } from 'lucide-react';
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/navbar';
+import {
+  Star,
+  MessageCircleQuestionMark
+} from 'lucide-react';
 
 interface Choice {
   id: number;
@@ -92,11 +95,13 @@ export function JarGame() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+      <Navbar />
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6 shadow-lg">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <div className="text-green-600 px-6 pt-5">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center">
-            <h1 className="text-2xl md:text-3xl font-bold">CHOICES IN A JAR</h1>
+            <h1 className="text-2xl md:text-4xl font-bold ms-7">CHOICES IN A JAR</h1>
+            <MessageCircleQuestionMark className="w-10 h-10 mr-3 ms-3" />
           </div>
         </div>
       </div>
