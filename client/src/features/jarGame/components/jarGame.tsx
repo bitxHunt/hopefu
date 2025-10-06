@@ -160,21 +160,21 @@ export function JarGame() {
               <div className="w-full max-w-2xl space-y-4">
                 <Button
                   onClick={() => handleOptionSelect(choice.option1, choice.points1)}
-                  className="w-full py-6 text-lg rounded-full bg-gray-200 text-gray-700 hover:bg-green-500 hover:text-white transition-all shadow-lg"
+                  className="w-full py-6 text-lg rounded-full bg-gray-200 text-gray-700 hover:bg-[#1c6d22] hover:text-white transition-all shadow-lg"
                 >
                   <span>{choice.option1}</span>
                 </Button>
 
                 <Button
                   onClick={() => handleOptionSelect(choice.option2, choice.points2)}
-                  className="w-full py-6 text-lg rounded-full bg-gray-200 text-gray-700 hover:bg-green-500 hover:text-white transition-all shadow-lg"
+                  className="w-full py-6 text-lg rounded-full bg-gray-200 text-gray-700 hover:bg-[#1c6d22] hover:text-white transition-all shadow-lg"
                 >
                   <span>{choice.option2}</span>
                 </Button>
 
                 <Button
                   onClick={() => handleOptionSelect(choice.option3, choice.points3)}
-                  className="w-full py-6 text-lg rounded-full bg-gray-200 text-gray-700 hover:bg-green-500 hover:text-white transition-all shadow-lg"
+                  className="w-full py-6 text-lg rounded-full bg-gray-200 text-gray-700 hover:bg-[#1c6d22] hover:text-white transition-all shadow-lg"
                 >
                   <span>{choice.option3}</span>
                 </Button>
