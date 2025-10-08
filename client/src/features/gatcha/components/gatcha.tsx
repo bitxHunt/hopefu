@@ -216,7 +216,8 @@ export function Gatcha() {
                   </Button>
                   <Button
                     onClick={draw5xCats}
-                    className="px-8 py-6 text-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white"
+                    className="px-8 py-6 text-xl bg-gray-200 hover:bg-gray-300 text-gray-700"
+                    // className="px-8 py-6 text-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white"
                   >
                     Draw 5x Cat
                   </Button>
@@ -226,7 +227,8 @@ export function Gatcha() {
                   <Button
                     size="lg"
                     onClick={drawType === "single" ? drawSingleCat : draw5xCats}
-                    className="px-8 py-6 text-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                    // className="px-8 py-6 text-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                    className="px-8 py-6 text-xl bg-gray-200 hover:bg-gray-300 text-gray-700"
                   >
                     Draw Again!
                   </Button>
